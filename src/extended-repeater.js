@@ -29,7 +29,10 @@ function repeater(str, options) {
   if (!options.repeatTimes) options.repeatTimes = 1;
 
   if (!options.additionRepeatTimes) options.additionRepeatTimes = 1;
-    
+
+  let additionStr = (options.addition + options.additionSeparator).repeat(options.additionRepeatTimes - 1) + options.addition;
+  
+  return (str + additionStr + options.separator).repeat(options.repeatTimes - 1) + str + additionStr;
 }
 
 module.exports = {
