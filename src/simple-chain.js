@@ -10,10 +10,14 @@ const chainMaker = {
     return this.chain.length;
   },
   addLink(value) {
-    this.chain.push(value);
+    this.chain.push(`${value}`);
     return this;
   },
   removeLink(position) {
+    if (!this.chain[position - 1]) {
+      this.chain = [];
+      throw new Error("You can't remove incorrect link!");
+    }
     this.chain.splice(position-1, 1);
     return this;
   },
@@ -22,7 +26,9 @@ const chainMaker = {
     return this;
   },
   finishChain() {
-    return '( ' + this.chain.join(' )~~( ') + ' )';
+    const finish = '( ' + this.chain.join(' )~~( ') + ' )';
+    this.chain = [];
+    return finish;
   }
 };
 
