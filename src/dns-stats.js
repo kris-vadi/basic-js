@@ -36,8 +36,6 @@ function getDNSStats(domains) {
   return obj;
 }
 
-console.log(getDNSStats(['epam.com', 'info.epam.com']));
-
 module.exports = {
   getDNSStats
 };
