@@ -18,7 +18,7 @@ function encodeLine(str) {
     if(str[i] === str[i+1]) {
       counter++;
     } else {
-      arr.push(counter, str[i]);
+      (counter > 1 ) ? arr.push(counter, str[i]) : arr.push(str[i]);
       counter = 1;
     }
   }
